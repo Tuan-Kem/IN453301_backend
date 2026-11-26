@@ -65,19 +65,39 @@ Chạy lần lượt 3 tệp trong thư mục `sql/` bằng pgAdmin 4 (Query Too
 
 ## 3. Cách chạy Minimal API (Mục 3.2)
 
-1. Cài đặt chuỗi kết nối PostgreSQL qua `user-secrets`:
+1. Vào thư mục project và cài package (nếu chưa cài):
 
    ```bash
    cd src/EduHub.Api
+   dotnet add package Npgsql
+   dotnet add package Swashbuckle.AspNetCore
+   ```
+
+2. Lưu chuỗi kết nối PostgreSQL bằng `user-secrets` (không commit mật khẩu lên Git):
+
+   ```bash
+   dotnet user-secrets init
    dotnet user-secrets set "ConnectionStrings:Default" "Host=localhost;Port=5432;Database=eduhub;Username=postgres;Password=your_password"
    ```
 
-2. Khởi chạy API:
+3. Khởi chạy API:
 
    ```bash
    dotnet run --urls http://localhost:5000
    ```
 
+4. Gọi thử bằng Swagger UI tại `http://localhost:5000/swagger` hoặc bằng `curl` (xem `docs/requests.md`).
+
 ### Ảnh minh chứng kết quả gọi thử API
 
-![Kết quả gọi thử API](docs/images/02-api-test.png)
+**GET danh sách đăng ký của khoá học** (`200 OK`):
+
+![GET registrations 200](docs/images/get-registrations-200.png)
+
+**POST tạo đăng ký** (`201 Created`):
+
+![POST registration 201](docs/images/post-registration-201.png)
+
+**POST tạo đăng ký trùng** (`409 Conflict`, Problem Details):
+
+![POST registration 409](docs/images/post-registration-409.png)

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "M8cQ5yRhhGM=",
+  "success": true,
+  "projectFilePath": "D:\\Tai_Lieu\\2026-2027\\HK1\\back_end\\IN4533-BT02-0024418788\\src\\EduHub.Api\\EduHub.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tuank\\.nuget\\packages\\microsoft.extensions.apidescription.server\\10.0.0\\microsoft.extensions.apidescription.server.10.0.0.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\11.0.0\\microsoft.extensions.dependencyinjection.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\11.0.0\\microsoft.extensions.logging.abstractions.11.0.0.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\microsoft.openapi\\3.11.0\\microsoft.openapi.3.11.0.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\npgsql\\11.0.0\\npgsql.11.0.0.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\swashbuckle.aspnetcore\\11.0.1\\swashbuckle.aspnetcore.11.0.1.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\11.0.1\\swashbuckle.aspnetcore.swagger.11.0.1.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\11.0.1\\swashbuckle.aspnetcore.swaggergen.11.0.1.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\11.0.1\\swashbuckle.aspnetcore.swaggerui.11.0.1.nupkg.sha512",
+    "C:\\Users\\tuank\\.nuget\\packages\\system.diagnostics.diagnosticsource\\11.0.0\\system.diagnostics.diagnosticsource.11.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
