@@ -14,4 +14,5 @@ INSERT INTO registrations (member_id, course_id, status) VALUES
     (1, 2, 'pending'),
     (2, 1, 'pending'),
     (2, 3, 'confirmed'),
+    (4, 1, 'confirmed'),
     (4, 2, 'cancelled');

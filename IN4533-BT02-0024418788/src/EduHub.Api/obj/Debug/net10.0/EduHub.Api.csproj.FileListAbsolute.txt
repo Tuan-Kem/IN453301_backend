@@ -8,7 +8,11 @@ D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Deb
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\EduHub.Api.pdb
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Npgsql.dll
+D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\System.Diagnostics.DiagnosticSource.dll
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.csproj.AssemblyReference.cache
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
@@ -16,6 +20,7 @@ D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Deb
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.AssemblyInfoInputs.cache
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.AssemblyInfo.cs
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.csproj.CoreCompileInputs.cache
+D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.sourcelink.json
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
@@ -33,8 +38,3 @@ D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Deb
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.pdb
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.genruntimeconfig.cache
 D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\ref\EduHub.Api.dll
-D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
-D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\Tai_Lieu\2026-2027\HK1\back_end\IN4533-BT02-0024418788\src\EduHub.Api\obj\Debug\net10.0\EduHub.Api.MvcApplicationPartsAssemblyInfo.cs

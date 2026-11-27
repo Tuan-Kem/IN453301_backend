@@ -8,24 +8,32 @@
 
 ---
 
-## 1. Cách cài đặt và kết nối PostgreSQL
+## 1. Cài đặt và kết nối PostgreSQL
 
-### Phương án A: Cài đặt trực tiếp PostgreSQL 19 trên Windows
+### Phương án A: Cài đặt PostgreSQL 19 trên Windows
 
-- **Cách cài đặt:** Tải và chạy bộ cài (installer) PostgreSQL 19 trên Windows; thiết lập tài khoản quản trị (`postgres`), mật khẩu và cổng mặc định `5432`.
-- **Công cụ kết nối:** Dùng **pgAdmin 4** để kết nối tới server PostgreSQL 19 và quản lý cơ sở dữ liệu `eduhub`.
-- **Kiểm tra kết nối:** Mở rộng nhánh *Servers → PostgreSQL 19 → Databases* trong pgAdmin 4 để xác nhận server hoạt động và database `eduhub` đã tồn tại.
+- Tải và cài đặt PostgreSQL 19 trên Windows.
+- Thiết lập tài khoản quản trị `postgres`, mật khẩu và cổng mặc định `5432`.
+- Sử dụng **pgAdmin 4** để kết nối và quản lý cơ sở dữ liệu `eduhub`.
+- Kiểm tra kết nối tại `Servers → PostgreSQL 19 → Databases`, xác nhận database `eduhub` đã tồn tại.
 
 ### Phương án B: Chạy PostgreSQL 16 bằng Docker Desktop
 
-- **Cách cài đặt:** Cài đặt và khởi chạy **Docker Desktop** (Engine ở trạng thái *Running*), sau đó kéo image `postgres:16-alpine` và tạo container tên `eduhub_db`.
-- **Cấu hình container:**
-  - Image: `postgres:16-alpine`
-  - Tên container: `eduhub_db`
-  - Ánh xạ cổng: `5432:5432` (cổng `5432` trên máy host trỏ tới cổng `5432` trong container)
-  - Volume lưu dữ liệu: `eduhub_pgdata:/var/lib/postgresql/data` (giữ dữ liệu khi dừng hoặc tạo lại container)
-  - Biến môi trường khởi tạo: `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB=eduhub`
-- **Lệnh khởi chạy (Bash / Git Bash):**
+- Cài đặt và khởi chạy Docker Desktop, đảm bảo Docker Engine ở trạng thái Running.
+- Sử dụng image `postgres:16-alpine` để tạo container PostgreSQL.
+
+**Thông tin cấu hình container:**
+
+| Thành phần | Giá trị |
+|---|---|
+| Image | `postgres:16-alpine` |
+| Container name | `eduhub_db` |
+| Port | `5432:5432` |
+| Volume | `eduhub_pgdata:/var/lib/postgresql/data` |
+| Database | `eduhub` |
+| Username | `postgres` |
+
+**Lệnh khởi chạy (Bash / Git Bash):**
 
 ```bash
 docker run -d --name eduhub_db \
@@ -37,67 +45,146 @@ docker run -d --name eduhub_db \
   postgres:16-alpine
 ```
 
-### Ảnh minh chứng kết nối thành công
+### Ảnh minh chứng
 
-**Kết nối cơ sở dữ liệu:** Kết nối thành công vào database `eduhub` qua công cụ quản trị.
+**Kết nối PostgreSQL thành công:**
 
-![Kết nối PostgreSQL thành công](docs/images/01-ket-noi-postgresql.png)
+![Kết nối PostgreSQL](docs/images/01-ket-noi-postgresql.png)
 
-**Chạy PostgreSQL bằng Docker:** Container `eduhub_db` (`postgres:16-alpine`) đang chạy và mở cổng `5432:5432` trên Docker Desktop.
+**Chạy PostgreSQL bằng Docker Desktop:**
 
-![Container PostgreSQL chạy trên Docker Desktop](docs/images/03-docker.png)
+![Docker PostgreSQL](docs/images/03-docker.png)
 
-**Thao tác và truy vấn SQL:** Viết và chạy các câu lệnh SQL (`INSERT`, `JOIN`, `LEFT JOIN`, `GROUP BY`) trên cơ sở dữ liệu `eduhub` bằng DBeaver.
+**Thao tác và truy vấn SQL bằng DBeaver:**
 
-![Thao tác và truy vấn SQL trên DBeaver](docs/images/02-truy-van-sql-dbeaver.png)
+![Truy vấn SQL](docs/images/02-truy-van-sql-dbeaver.png)
 
 ---
 
 ## 2. Cách chạy các tệp SQL
 
-Chạy lần lượt 3 tệp trong thư mục `sql/` bằng pgAdmin 4 (Query Tool):
+Các tệp SQL được lưu trong thư mục `sql/` tại thư mục gốc của project.
 
-1. `sql/01-schema.sql`: Tạo cấu trúc 3 bảng (`members`, `courses`, `registrations`).
-2. `sql/02-seed.sql`: Thêm dữ liệu mẫu.
-3. `sql/03-queries.sql`: Chạy các câu truy vấn thống kê.
+Sử dụng pgAdmin 4 (Query Tool) hoặc DBeaver để thực thi lần lượt:
+
+1. `sql/01-schema.sql`: Tạo cấu trúc cơ sở dữ liệu gồm 3 bảng `members`, `courses`, `registrations`.
+2. `sql/02-seed.sql`: Thêm dữ liệu mẫu vào các bảng.
+3. `sql/03-queries.sql`: Thực hiện các câu truy vấn thống kê dữ liệu.
+
+Thứ tự thực hiện cần được đảm bảo để dữ liệu mẫu và các câu truy vấn hoạt động chính xác.
 
 ---
 
 ## 3. Cách chạy Minimal API (Mục 3.2)
 
-1. Vào thư mục project và cài package (nếu chưa cài):
+### 3.1. Cài đặt thư viện
 
-   ```bash
-   cd src/EduHub.Api
-   dotnet add package Npgsql
-   dotnet add package Swashbuckle.AspNetCore
-   ```
+Mở Terminal tại thư mục gốc của project, sau đó chạy:
 
-2. Lưu chuỗi kết nối PostgreSQL bằng `user-secrets` (không commit mật khẩu lên Git):
+```bash
+cd src/EduHub.Api
+dotnet add package Npgsql
+dotnet add package Swashbuckle.AspNetCore
+```
 
-   ```bash
-   dotnet user-secrets init
-   dotnet user-secrets set "ConnectionStrings:Default" "Host=localhost;Port=5432;Database=eduhub;Username=postgres;Password=your_password"
-   ```
+### 3.2. Cấu hình chuỗi kết nối PostgreSQL
 
-3. Khởi chạy API:
+Khởi tạo User Secrets:
 
-   ```bash
-   dotnet run --urls http://localhost:5000
-   ```
+```bash
+dotnet user-secrets init
+```
 
-4. Gọi thử bằng Swagger UI tại `http://localhost:5000/swagger` hoặc bằng `curl` (xem `docs/requests.md`).
+Thiết lập chuỗi kết nối:
 
-### Ảnh minh chứng kết quả gọi thử API
+```bash
+dotnet user-secrets set "ConnectionStrings:Default" "Host=localhost;Port=5432;Database=eduhub;Username=postgres;Password=your_password"
+```
 
-**GET danh sách đăng ký của khoá học** (`200 OK`):
+Thay `your_password` bằng mật khẩu PostgreSQL đã thiết lập trên máy.
 
-![GET registrations 200](docs/images/get-registrations-200.png)
+Sử dụng User Secrets để lưu thông tin kết nối, tránh đưa mật khẩu trực tiếp vào mã nguồn hoặc commit lên Git.
 
-**POST tạo đăng ký** (`201 Created`):
+### 3.3. Khởi chạy API
 
-![POST registration 201](docs/images/post-registration-201.png)
+Đảm bảo PostgreSQL đang hoạt động và database `eduhub` đã được tạo.
 
-**POST tạo đăng ký trùng** (`409 Conflict`, Problem Details):
+Tại thư mục `src/EduHub.Api`, chạy:
 
-![POST registration 409](docs/images/post-registration-409.png)
+```bash
+dotnet run --urls http://localhost:5000
+```
+
+Khi ứng dụng khởi động thành công, API sẽ lắng nghe tại:
+
+```text
+http://localhost:5000
+```
+
+### 3.4. Kiểm thử API bằng Swagger và Postman
+
+**Swagger UI:**
+
+Truy cập địa chỉ:
+
+```text
+http://localhost:5000/swagger
+```
+
+**Các API đã triển khai:**
+
+| Method | Endpoint | Chức năng |
+|---|---|---|
+| GET | `/api/v1/courses/{courseId}/registrations` | Lấy danh sách đăng ký của khóa học |
+| POST | `/api/v1/courses/{courseId}/registrations` | Tạo đăng ký khóa học |
+
+**Ví dụ kiểm thử POST:**
+
+URL:
+
+```http
+POST http://localhost:5000/api/v1/courses/1/registrations
+```
+
+Body (JSON):
+
+```json
+{
+  "memberId": 1
+}
+```
+
+Trong đó, `courseId` và `memberId` phải tồn tại trong cơ sở dữ liệu.
+
+### Ảnh minh chứng kết quả kiểm thử
+
+**Kiểm thử bằng Swagger:**
+
+- GET danh sách đăng ký – `200 OK`.
+
+![GET Swagger](docs/images/01-get-registrations-200-swagger.png)
+
+- POST tạo đăng ký thành công – `201 Created`.
+
+![POST Swagger](docs/images/02-post-registration-201-swagger.png)
+
+- POST đăng ký trùng – `409 Conflict`.
+
+![POST Swagger 409](docs/images/03-post-registration-409-swagger.png)
+
+**Kiểm thử bằng Postman:**
+
+- GET danh sách đăng ký – `200 OK`.
+
+![GET Postman](docs/images/04-get-registrations-200-postman.png)
+
+- POST tạo đăng ký thành công – `201 Created`.
+
+![POST Postman](docs/images/05-post-registration-201-postman.png)
+
+- POST đăng ký trùng – `409 Conflict`.
+
+![POST Postman 409](docs/images/06-post-registration-409-postman.png)
+
+
+
